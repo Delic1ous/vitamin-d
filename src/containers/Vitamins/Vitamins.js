@@ -58,14 +58,6 @@ export class Vitamins extends Component {
         break;
       case "4":
         vitamin = (
-          // <path
-          //   stroke="#000"
-          //   transform="rotate(-45 100.89250946044919,100.70500946044919) "
-          //   id="svg_4"
-          //   d="m150.53391,290.70501l141.42642,-141.42642l141.42642,141.42642l-141.42642,141.42642l-141.42642,-141.42642z"
-          //   strokeWidth="1.5"
-          //   className={fill}
-          // />
           <rect stroke="#000" id="svg_4" height="200" width="200" y="0" x="270" strokeWidth="1.5" className={fill}/>
         );
         break;

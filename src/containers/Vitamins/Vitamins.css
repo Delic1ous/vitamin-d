@@ -1,15 +1,24 @@
+rect,
+path {
+  opacity: 1;
+  animation: appear 1s;
+  transition: 1s;
+}
 .black {
-    fill: black;
-    transition: fill 1.8s ease-in-out;
-    opacity: 1;
+  fill: black;
 }
 .grey {
-    fill: grey;
-    transition: fill 1.8s ease-in-out;
-    opacity: 1;
+  fill: grey;
 }
 .white {
-    fill: white;
-    transition: fill 1.8s ease-in-out;
+  fill: white;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
+  }
 }

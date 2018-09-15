@@ -9,6 +9,8 @@ h1 {
   color: #004d40;
   box-shadow: 0 10px 20px rgba(0, 77, 64, 0.25), 0 6px 6px rgba(0, 77, 64, 0.22);
   text-shadow: 0px 0px 1px rgba(29, 233, 182, 1);
+  transition: 1.5s;
+
 }
 
 text {
@@ -22,6 +24,7 @@ form {
   display: flex;
   justify-content: center;
   height: 50px;
+  transition: 1.5s
 }
 
 .form {
@@ -69,6 +72,23 @@ form button:hover, .demo:hover {
   cursor: pointer;
   outline: none;
   transition: ease-in-out 0.5s;
+}
+
+.demonstration {
+  /* transition: 1.5s; */
+  cursor: default;
+  transform: translateY(-300px)
+}
+h1.demonstration {
+  z-index: 100;
+  transition: 1.5s;
+  color: rgb(29, 233, 182);
+  transform: none;
+  background-color: black;
+  margin-bottom: -100px
+}
+.demo {
+  display: none;
 }
 
 form button:active, .demo:active {
