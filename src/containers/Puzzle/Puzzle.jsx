@@ -10,14 +10,14 @@ export class Puzzle extends Component {
     this.state = {
       vitamins: [],
       states: [],
-      demonstration: ''
+      demonstration: ""
     };
   }
 
   // 3B SOLUTION
 
   demoHandler = event => {
-    this.setState({demonstration: 'demonstration'})
+    this.setState({ demonstration: "demonstration" });
     event.preventDefault();
     var counter = -1;
     var timerId = setInterval(() => {
@@ -28,17 +28,14 @@ export class Puzzle extends Component {
           color: puzzle[1]
         };
       });
-
       this.setState({
-        vitamins,
+        vitamins
       });
-      
-    }, 1500);
-
+    }, 1000);
     setTimeout(() => {
       clearInterval(timerId);
-      this.setState({demonstration: ''})
-    }, 17000);
+      this.setState({ demonstration: "" });
+    }, 21000);
   };
 
   // 3A TASK SOLUTION
@@ -59,12 +56,21 @@ export class Puzzle extends Component {
       [5, "B", "W"],
       [6, "G", "W"],
       [4, "B", "G"],
+      [6, "W", "B"],
       [5, "W", "G"],
-      [6, "W", "G"],
+      [6, "B", "G"],
       [3, "B", "W"],
-      [4, "G", "W"],
+      [6, "G", "B"],
       [5, "G", "W"],
-      [6, "G", "W"]
+      [6, "B", "W"],
+      [4, "G", "B"],
+      [6, "W", "B"],
+      [5, "W", "G"],
+      [6, "B", "G"],
+      [4, "B", "W"],
+      [6, "G", "B"],
+      [5, "G", "W"],
+      [6, "B", "W"]
     ]);
 
     function produceStates(initialState, operations) {
@@ -109,7 +115,7 @@ export class Puzzle extends Component {
     });
 
     // VALIDATION BEFORE UPDATING THE STATE
-    
+
     if (value[length] !== "") {
       document.getElementById("input").placeholder = "Play around ;)";
       this.setState({
@@ -121,12 +127,14 @@ export class Puzzle extends Component {
     this.input.current.value = "";
   };
 
-
   render() {
     return (
       <div>
         <h1 className={this.state.demonstration}>Vitamin Puzzle</h1>
-        <button className={`demo ${this.state.demonstration}`} onClick={this.demoHandler}>
+        <button
+          className={`demo ${this.state.demonstration}`}
+          onClick={this.demoHandler}
+        >
           Demonstrate
         </button>
         <form action="" className={`form ${this.state.demonstration}`}>
@@ -162,14 +170,24 @@ export default Puzzle;
 // 1A TASK SOLUTION
 // input 3B, 4B, 5B, 6B
 // Output: [
-//     [6 B G] // 6 grey MAXI GREY
-//     [5 B W] // 5 white MAXI WHITE
-//     [6 G W] // 6 white NEW MAXI WHITE
-//     [4 B G] // 4 grey MAXI GREY
-//     [5 W G] // 5 grey NEW MAXI GREY
-//     [6 W G] // 6 grey NEW MAXI GREY
-//     [3 B W] // 3 white MAXI WHITE
-//     [4 G W] // 4 white NEW MAXI WHITE
-//     [5 G W] // 5 white NEW MAXI WHITE
-//     [6 G W] // 6 white NEW MAXI WHITE
+// 3B 4B 5B 6B      [6, "B", "G"], // Hexagon Vitamin goes from black to grey
+// 3B 4B 5B 6G      [5, "B", "W"], // Pentagon Vitamin goes from black to white
+// 3B 4B 5W 6G      [6, "G", "W"], // Hexagon Vitamin goes from grey to white
+// 3B 4B 5W 6W      [4, "B", "G"], // Square Vitamin goes from black to grey
+// 3B 4G 5W 6W      [6, "W", "B"], // Hexagon Vitamin goes from white to black
+// 3B 4G 5W 6B      [5, "W", "G"], // Pentagon Vitamin goes from white to grey
+// 3B 4G 5G 6B      [6, "B", "G"], // Hexagon Vitamin goes from black to grey
+// 3B 4G 5G 6G      [3, "B", "W"], // Triangular Vitamin goes from black to white
+// 3W 4G 5G 6G      [6, "G", "B"], // Hexagon Vitamin goes from grey to black
+// 3W 4G 5G 6B      [5, "G", "W"], // Pentagon Vitamin goes from grey to white
+// 3W 4G 5W 6B      [6, "B", "W"], // Hexagon Vitamin goes from black to white
+// 3W 4G 5W 6W      [4, "G", "B"], // Square Vitamin goes from grey to black
+// 3W 4B 5W 6W      [6, "W", "B"], // Hexagon Vitamin goes from white to black
+// 3W 4B 5W 6B      [5, "W", "G"], // Pentagon Vitamin goes from white to grey
+// 3W 4B 5G 6B      [6, "B", "G"], // Hexagon Vitamin goes from black to grey
+// 3W 4B 5G 6G      [4, "B", "W"], // Square Vitamin goes from black to white
+// 3W 4W 5G 6G      [6, "G", "B"], // Hexagon Vitamin goes from grey to black
+// 3W 4W 5G 6B      [5, "G", "W"], // Pentagon Vitamin goes from grey to white
+// 3W 4W 5W 6B      [6, "B", "W"]  // Hexagon Vitamin goes from black to white
+// 3W 4W 5W 6W      
 // ]
