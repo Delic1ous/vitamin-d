@@ -126,11 +126,11 @@ export class Puzzle extends Component {
     return (
       <div>
         <h1 className={this.state.demonstration}>Vitamin Puzzle</h1>
-        <button className="demo" onClick={this.demoHandler}>
+        <button className={`demo ${this.state.demonstration}`} onClick={this.demoHandler}>
           Demonstrate
         </button>
-        <form action="" className={this.state.demonstration}>
-          <div className="form">
+        <form action="" className={`form ${this.state.demonstration}`}>
+          <div className="form-wrapper">
             <input
               id="input"
               type="text"
